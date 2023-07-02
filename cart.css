@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+#app {
+  padding-top: 50px;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 50px 80px;
+  margin: 0 auto;
+  background-color: #323131;
+  color: #fcf6f6;
+  display: flex;
+}
+.container .cart {
+  width: 65%;
+  margin-right: auto;
+}
+.container h2 {
+  font-size: 2rem;
+  text-transform: capitalize;
+  padding-bottom: 50px;
+}
+.container .cart_items {
+  width: 100%;
+  padding-bottom: 50px;
+}
+.container .cart_items .item {
+  display: flex;
+  border-bottom: 1px solid #aaa;
+  padding: 30px;
+}
+.container .cart_items .item .pic {
+  width: 20%;
+  height: auto;
+}
+.container .cart_items .item .pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.container .cart_items .item .item_detail {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container .cart_items .item .item_detail span:first-child {
+  font-size: 1.5rem;
+}
+.container .cart_items .item .item_detail .count {
+  display: flex;
+  align-items: center;
+}
+.container .cart_items .item .item_detail .count span {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px;
+}
+.container .cart_items .item .item_detail input {
+  width: 50px;
+  padding: 10px;
+  margin: 0 10px;
+  text-align: center;
+}
+.container .cart_items .item .item_detail .price {
+  font-size: 1.5rem;
+}
+.container .cart_items .item .item_detail button {
+  padding: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #fcf6f6;
+  font-size: 20px;
+}
+.container .total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+.container .total button {
+  background: none;
+  border: none;
+  color: #fcf6f6;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.container .credit_card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .credit_card h2 {
+  text-transform: capitalize;
+  font-size: 2rem;
+  padding-bottom: 0;
+}
+.container .credit_card .card_type .card_cover {
+  width: 70%;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}/*# sourceMappingURL=cart.css.map */

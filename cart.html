@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="cart">
+        <h2>shopping cart</h2>
+        <div class="cart_items">
+          <div class="item" v-for="(item,index) in item">
+            <div class="pic">
+              <img :src=item.pic alt="">
+            </div>
+            <div class="item_detail">
+              <span class="title">{{ item.title }}</span>
+              <div class="count">
+                <span @click="reduce(index)">-</span>
+                <input type="text" :value="item.num" disabled>
+                <span @click="add(index)">+</span>
+              </div>
+              <span class="price">${{ item.total }}</span>
+              <button @click="deleteItem(index)">X</button>
+            </div>
+          </div>
+        </div>
+        <div class="total">
+          <button>continue shopping</button>
+          <span>Subtotal:${{sum}}</span>
+        </div>
+      </div>
+      <div class="credit_card">
+        <h2>card details</h2>
+        <div class="card_type">
+          <h3>card type</h3>
+          <div class="card_cover">
+            <span>VISA</span>
+            <div class="psw">
+              <span>****</span>
+              <span>****</span>
+              <span>****</span>
+              <span>****</span>
+            </div>
+          </div>
+        </div>
+        <div class="card_name">
+          <h3>card name</h3>
+          <input type="text">
+        </div>
+        <div class="card_number">
+          <h3>card number</h3>
+          <input type="text" name="" id="" maxlength="4" size="5">
+          <input type="text" name="" id="" maxlength="4" size="5">
+          <input type="text" name="" id="" maxlength="4" size="5">
+          <input type="text" name="" id="" maxlength="4" size="5">
+        </div>
+        <div class="expiration_cvv">
+          <h3>expiration_cvv</h3>
+          <input type="month" name="" id="">
+          <input type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          item: [
+            {
+             pic: "https://picsum.photos/id/684/600/400",
+             title: '衣服',
+             price: 200,
+             num: 1,
+             total: 200,
+            },
+            {
+             pic: "https://picsum.photos/id/68/600/400",
+             title: '鞋子',
+             price: 500,
+             num: 1,
+             total: 500,
+            },
+            {
+             pic: "https://picsum.photos/id/14/600/400",
+             title: '皮帶',
+             price: 100,
+             num: 1,
+             total: 100,
+            },
+            {
+             pic: "https://picsum.photos/id/140/600/400",
+             title: '襪子',
+             price: 50,
+             num: 1,
+             total: 50,
+            },
+          ],
+        }
+      },
+      computed: {
+        sum() {
+          let total = 0;
+          this.item.forEach(item => {
+            total += item.total;
+          })
+          return total;
+        }
+      },
+      methods: {
+        add(index) {
+          this.item[index].num += 1;
+          this.item[index].total = this.item[index].price * this.item[index].num;
+        },
+        reduce(index) {
+          if(this.item[index].num === 1) return;
+          this.item[index].num -= 1;
+          this.item[index].total = this.item[index].price * this.item[index].num;
+        },
+        deleteItem(index) {
+          this.item.splice(index,1);
+        }
+      },
+    });
+    app.mount('#app');
+  </script>
+</body>
+</html>
