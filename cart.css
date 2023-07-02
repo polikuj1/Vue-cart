@@ -96,7 +96,7 @@
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .container .credit_card h2 {
   text-transform: capitalize;
